@@ -2,8 +2,7 @@ package com.ted.akka.extensions
 
 import akka.actor.ActorSystem
 import akka.testkit.TestKit
-import org.scalatest.{BeforeAndAfterAll, FunSuiteLike, Matchers, WordSpecLike}
-
+import org.scalatest.{BeforeAndAfterAll, FunSuiteLike, Matchers}
 
 class SettingsExtensionTest
   extends TestKit(ActorSystem("SettingsExtensionTest"))

@@ -3,7 +3,6 @@ package com.ted.akka.extensions
 import akka.actor.{Actor, ExtendedActorSystem, Extension, ExtensionId, ExtensionIdProvider}
 import com.typesafe.config.Config
 
-
 class SettingsExtensionImpl(config: Config) extends Extension {
 
   object service {
