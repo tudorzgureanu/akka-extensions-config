@@ -5,7 +5,7 @@ import akka.testkit.TestKit
 import org.scalatest.{BeforeAndAfterAll, FunSuiteLike, Matchers, WordSpecLike}
 
 
-class SettingsExtensionSpec
+class SettingsExtensionTest
   extends TestKit(ActorSystem("SettingsExtensionSpec"))
     with FunSuiteLike
     with BeforeAndAfterAll
@@ -24,7 +24,7 @@ class SettingsExtensionSpec
 
   test("SettingsExtension to return the correct config values for product-service") {
     val productService = settings.productService
-    productService.protocol shouldBe "http://"
+    productService.protocol shouldBe "http"
     productService.host shouldBe "127.0.0.0"
     productService.port shouldBe "8080"
 
