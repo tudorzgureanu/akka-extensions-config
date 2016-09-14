@@ -6,7 +6,7 @@ import org.scalatest.{BeforeAndAfterAll, FunSuiteLike, Matchers, WordSpecLike}
 
 
 class SettingsExtensionTest
-  extends TestKit(ActorSystem("SettingsExtensionSpec"))
+  extends TestKit(ActorSystem("SettingsExtensionTest"))
     with FunSuiteLike
     with BeforeAndAfterAll
     with Matchers {
