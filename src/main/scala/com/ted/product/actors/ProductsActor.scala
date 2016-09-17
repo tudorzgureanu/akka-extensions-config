@@ -1,4 +1,4 @@
-package com.ted.akka.actors
+package com.ted.product.actors
 
 import akka.actor.Actor
 import com.ted.akka.extensions.SettingsActor
