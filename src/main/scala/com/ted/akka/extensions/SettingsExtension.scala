@@ -4,7 +4,6 @@ import akka.actor.{Actor, ExtendedActorSystem, Extension, ExtensionId, Extension
 import com.typesafe.config.Config
 
 class SettingsExtensionImpl(config: Config) extends Extension {
-
   object service {
     private val serviceConfig = config.getConfig("service")
     val name = serviceConfig.getString("name")
@@ -24,10 +23,8 @@ class SettingsExtensionImpl(config: Config) extends Extension {
 
 }
 
-object SettingsExtension extends ExtensionId[SettingsExtensionImpl] with ExtensionIdProvider {
+object SettingsExtension extends ExtensionId[SettingsExtensionImpl]{
   override def createExtension(system: ExtendedActorSystem) = new SettingsExtensionImpl(system.settings.config)
-
-  override def lookup() = SettingsExtension
 }
 
 trait SettingsActor {
