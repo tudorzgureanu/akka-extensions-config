@@ -2,6 +2,7 @@ package com.ted.akka.extensions
 
 import akka.actor.{Actor, ExtendedActorSystem, Extension, ExtensionId}
 import com.typesafe.config.Config
+import scala.collection.JavaConverters._
 
 class SettingsExtensionImpl(config: Config) extends Extension {
 
@@ -10,17 +11,25 @@ class SettingsExtensionImpl(config: Config) extends Extension {
     val name = serviceConfig.getString("name")
   }
 
-  object productService {
-    private val productServiceConfig = config.getConfig("product-service")
-    val protocol = productServiceConfig.getString("protocol")
-    val host = productServiceConfig.getString("host")
-    val port = productServiceConfig.getString("port")
+  object kafka {
+    private val kafkaConfig = config.getConfig("kafka")
 
-    object products {
-      private val productsConfig = productServiceConfig.getConfig("products")
-      val uri = productsConfig.getString("uri")
+    object producer {
+      private val producerConfig = kafkaConfig.getConfig("producer")
+      val bootstrapServers = producerConfig.getString("bootstrap.servers")
+      val acks = producerConfig.getString("acks")
+      val retries = producerConfig.getInt("retries")
+      val batchSize = producerConfig.getInt("batch.size")
+      val lingerMs = producerConfig.getInt("linger.ms")
+      val bufferMemory = producerConfig.getInt("buffer.memory")
     }
 
+    object consumer {
+      private val consumerConfig = kafkaConfig.getConfig("consumer")
+      val bootstrapServers = consumerConfig.getString("bootstrap.servers")
+      val groupId = consumerConfig.getString("group.id")
+      val topics = consumerConfig.getStringList("topics").asScala.toList
+    }
   }
 
 }

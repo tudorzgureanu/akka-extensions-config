@@ -22,13 +22,23 @@ class SettingsExtensionTest
     service.name shouldBe "product-consumer"
   }
 
-  test("SettingsExtension to return the correct config values for product-service") {
-    val productService = settings.productService
+  test("SettingsExtension to return the correct config values for kafka.producer") {
+    val kakfaProducer = settings.kafka.producer
 
-    productService.protocol shouldBe "http"
-    productService.host shouldBe "127.0.0.0"
-    productService.port shouldBe "8080"
-    productService.products.uri shouldBe "/products"
+    kakfaProducer.bootstrapServers shouldBe "http"
+    kakfaProducer.acks shouldBe "127.0.0.0"
+    kakfaProducer.batchSize shouldBe 8080
+    kakfaProducer.bufferMemory shouldBe 8080
+    kakfaProducer.retries shouldBe 8080
+    kakfaProducer.lingerMs shouldBe 8080
+  }
+
+  test("SettingsExtension to return the correct config values for kafka.consumer") {
+    val kafkaConsumer = settings.kafka.consumer
+
+    kafkaConsumer.bootstrapServers shouldBe "http"
+    kafkaConsumer.groupId shouldBe "127.0.0.0"
+    kafkaConsumer.topics shouldBe List()
   }
 
 }
