@@ -25,20 +25,20 @@ class SettingsExtensionTest
   test("SettingsExtension to return the correct config values for kafka.producer") {
     val kakfaProducer = settings.kafka.producer
 
-    kakfaProducer.bootstrapServers shouldBe "http"
-    kakfaProducer.acks shouldBe "127.0.0.0"
-    kakfaProducer.batchSize shouldBe 8080
-    kakfaProducer.bufferMemory shouldBe 8080
-    kakfaProducer.retries shouldBe 8080
-    kakfaProducer.lingerMs shouldBe 8080
+    kakfaProducer.bootstrapServers shouldBe "localhost:9092"
+    kakfaProducer.acks shouldBe "all"
+    kakfaProducer.batchSize shouldBe 16834
+    kakfaProducer.bufferMemory shouldBe 33554432
+    kakfaProducer.retries shouldBe 0
+    kakfaProducer.lingerMs shouldBe 1
   }
 
   test("SettingsExtension to return the correct config values for kafka.consumer") {
     val kafkaConsumer = settings.kafka.consumer
 
-    kafkaConsumer.bootstrapServers shouldBe "http"
-    kafkaConsumer.groupId shouldBe "127.0.0.0"
-    kafkaConsumer.topics shouldBe List()
+    kafkaConsumer.bootstrapServers shouldBe "localhost:9092"
+    kafkaConsumer.groupId shouldBe "sample-application"
+    kafkaConsumer.topics shouldBe List("sample-topic")
   }
 
 }
