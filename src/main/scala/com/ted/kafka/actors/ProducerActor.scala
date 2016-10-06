@@ -1,4 +1,4 @@
-package com.ted.product.actors
+package com.ted.kafka.actors
 
 import akka.actor.Actor
 import cakesolutions.kafka.KafkaProducer.Conf
