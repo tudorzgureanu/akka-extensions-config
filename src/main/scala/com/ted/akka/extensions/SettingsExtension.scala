@@ -6,9 +6,9 @@ import scala.collection.JavaConverters._
 
 class SettingsExtensionImpl(config: Config) extends Extension {
 
-  object service {
-    private val serviceConfig = config.getConfig("service")
-    val name = serviceConfig.getString("name")
+  object application {
+    private val applicationConfig = config.getConfig("application")
+    val name = applicationConfig.getString("name")
   }
 
   object kafka {

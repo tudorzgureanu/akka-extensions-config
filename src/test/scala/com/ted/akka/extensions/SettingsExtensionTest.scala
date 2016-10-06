@@ -16,10 +16,10 @@ class SettingsExtensionTest
 
   val settings = SettingsExtension(system)
 
-  test("SettingsExtension to return the correct config values for service") {
-    val service = settings.service
+  test("SettingsExtension to return the correct config values for application") {
+    val application = settings.application
 
-    service.name shouldBe "product-consumer"
+    application.name shouldBe "sample-application"
   }
 
   test("SettingsExtension to return the correct config values for kafka.producer") {
